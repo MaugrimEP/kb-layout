@@ -1,5 +1,87 @@
 #include QMK_KEYBOARD_H
 
+enum unicode_names {
+        e_grave,
+        E_grave,
+
+        e_aigu,
+        E_aigu,
+
+        e_circon,
+        E_circon,
+
+        e_deuxpts,
+        E_deuxpts,
+
+        a_circon,
+        A_circon,
+
+        a_grave,
+        A_grave,
+
+        u_circon,
+        U_circon,
+
+        u_grave,
+        U_grave,
+
+        c_cedille,
+        C_cedille,
+
+        i_circon,
+        I_circon,
+
+        i_deuxpts,
+        I_deuxpts,
+
+        o_deuxpts,
+        O_deuxpts,
+
+        o_circon,
+        O_circon,
+};
+
+const uint32_t PROGMEM unicode_map[] = {
+        [e_grave]=0x00E8,
+        [E_grave]=0x00C8,
+
+        [e_aigu]=0x00E9,
+        [E_aigu]=0x00C9,
+
+        [e_circon]=0x00EA,
+        [E_circon]=0x00CA,
+
+        [e_deuxpts]=0x00EB,
+        [E_deuxpts]=0x00CB,
+
+        [a_circon]=0x00E2,
+        [A_circon]=0x00C2,
+
+        [a_grave]=0x00E0,
+        [A_grave]=0x00C0,
+
+        [u_circon]=0x00FB,
+        [U_circon]=0x00DB,
+
+        [u_grave]=0x00F9,
+        [U_grave]=0x00D9,
+
+        [c_cedille]=0x00E7,
+        [C_cedille]=0x00C7,
+
+        [i_circon]=0x00EE,
+        [I_circon]=0x00CE,
+
+        [i_deuxpts]=0x00EF,
+        [I_deuxpts]=0x00CF,
+
+        [o_deuxpts]=0x00F6,
+        [O_deuxpts]=0x00D6,
+
+        [o_circon]=0x00F4,
+        [O_circon]=0x00D4
+};
+
 enum layer_number {
   _QWERTY = 0,
   _LOWER,
@@ -28,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                     KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_GRV,
   KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                     KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
   KC_LSFT, KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                     KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-  KC_LCTRL,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_LBRC,  KC_RBRC,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_BSLS,
+  KC_LCTL,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_LBRC,  KC_RBRC,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_BSLS,
                         KC_LALT, KC_LGUI, MO(_LOWER), KC_SPC, KC_ENT, MO(_RAISE), KC_BSPC, KC_RGUI
 ),
 /* LOWER
@@ -46,10 +128,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                   `----------------------------'           '------''--------------------'
  */
 [_LOWER] = LAYOUT(
-  _______, _______, _______, _______, _______, _______,                   _______, _______, _______,_______, _______, _______,
   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                     KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
-  KC_GRV, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_TILD,
-  _______, _______, _______, _______, _______, _______, _______, _______, XXXXXXX, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
+  _______, XP(a_circon, A_circon)  , XP(e_grave,E_grave)  , XP(e_aigu,E_aigu), XP(e_circon,E_circon), _______,         XP(u_circon,U_circon), XP(u_grave,U_grave), XP(i_circon,I_circon), XP(O_circon,O_circon), XP(o_deuxpts,O_deuxpts), _______,
+  KC_GRV, XP(a_grave,A_grave), XP(e_deuxpts,E_deuxpts),   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, XP(i_deuxpts,I_deuxpts), XP(o_deuxpts,O_deuxpts), KC_RPRN, KC_TILD,
+  _______, _______, _______, XP(c_cedille,C_cedille), _______, _______, _______, _______, XXXXXXX, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
                              _______, _______, _______, _______, _______,  _______, _______, _______
 ),
 /* RAISE
