@@ -132,7 +132,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, XP(a_circon, A_circon)  , XP(e_grave,E_grave)  , XP(e_aigu,E_aigu), XP(e_circon,E_circon), _______,         XP(u_circon,U_circon), XP(u_grave,U_grave), XP(i_circon,I_circon), XP(O_circon,O_circon), XP(o_deuxpts,O_deuxpts), _______,
   KC_GRV, XP(a_grave,A_grave), XP(e_deuxpts,E_deuxpts),   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, XP(i_deuxpts,I_deuxpts), XP(o_deuxpts,O_deuxpts), KC_RPRN, KC_TILD,
   _______, _______, _______, XP(c_cedille,C_cedille), _______, _______, _______, _______, XXXXXXX, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
-                             _______, _______, _______, _______, _______,  _______, _______, _______
+                             _______, _______, _______, _______, _______,  _______, KC_DEL, _______
 ),
 /* RAISE
  * ,-----------------------------------------.                    ,-----------------------------------------.
